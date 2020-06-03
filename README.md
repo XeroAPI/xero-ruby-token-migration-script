@@ -2,9 +2,9 @@
 
 This project shows a low level breakdown of how to make an authorized XeroAPI call to [migrate your XeroAPI connection to OAuth2.0](https://developer.xero.com/documentation/oauth2/migrate).
 
-To use this to migrate your XeroAPI tokens you need to configure the following:
-> Requires `ruby 2.7.0` to run.
+Requires `ruby 2.7.0`
 
+To use this to migrate your XeroAPI tokens you need to configure the following:
 * Rename `privatekey.pem.sample` to `privatekey.pem` and replace the contents with your actual private key
 * Replace the contents of `oauth1_tokens.json` with an array of valid OAuth1.0a tokens ( Tokens must be refreshed prior to exchanging them for Oauth2.0 tokens )
 * Replace the following constant values with your own:
