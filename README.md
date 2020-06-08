@@ -50,7 +50,7 @@ If you have multiple valid OAuth1.0a tokens you want to migrate simply add to th
 ```
 
 ## Re-Integrate your tokens
-Now you need to get those out `token_sets` into your system and configure your new API calls to use the new `access_token` & `xero_tenant_id` header.
+Get the new `token_sets` into your system and make sure to configure your new API calls to use the new `access_token` & `xero_tenant_id` header. We have a set of [supported SDK's](https://developer.xero.com/documentation/libraries/overview) to help make OAuth2.0 API calls and new user authentication easier.
 
 🥳
 
