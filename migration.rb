@@ -7,10 +7,14 @@ require 'json'
 require 'net/http'
 require 'csv'
 
-CONSUMER_KEY = 'YOUR_CONSUMER_KEY'
-SCOPES = 'offline_access SCOPE_1 SCOPE_2 SCOPE_3'
-OAUTH2_CLIENT_ID = 'YOUR_OAUTH2_CLIENT_ID'
-OAUTH2_CLIENT_SECRET = 'YOUR_OAUTH2_CLIENT_SECRET'
+CONSUMER_KEY = ''
+SCOPES = ''
+OAUTH2_CLIENT_ID = ''
+OAUTH2_CLIENT_SECRET = ''
+
+if (CONSUMER_KEY.empty? || SCOPES.empty? || OAUTH2_CLIENT_ID.empty? || OAUTH2_CLIENT_SECRET.empty?)
+  raise "\n\n*** One of your constants are not set correctly ***\n\n"
+end
 
 SIGNATURE_METHOD = 'RSA-SHA1'
 ENDPOINT = 'https://api.xero.com/oauth/migrate'
