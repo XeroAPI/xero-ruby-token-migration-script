@@ -60,7 +60,7 @@ If you want to see a step through explanation of everything in the `migrate.rb` 
 
 ### 1) Configure Variables
 
-You will need to track down the following variables from your OA1, and OA2 applications.
+You will need to track down the following variables from your OAuth1.0a, and OAuth2.0 applications.
 
 ```ruby
 require 'securerandom'
@@ -116,7 +116,7 @@ signature_base_string
 ```
 
 ### 4) Sign `signature_base_string` With Private Key
-We now have the `signature_base_string` we can sign using our private key that is associated with OA1 Partner app's public cert that we previously uploaded to our Partner app https://developer.xero.com/myapps/details?appId=<uuid> dashboard.
+We now have the `signature_base_string` we can sign using our private key that is associated with OAuth1.0a Partner app's public cert that we previously uploaded to our Partner app https://developer.xero.com/myapps/details?appId=<uuid> dashboard.
 
 *If you are unable to track this down you can always regenerate a new set, re-upload public cert to the Xero app dash & put the private key on your server / in this script.*
 
@@ -174,7 +174,7 @@ params
 ```
 
 ### 5) Make your API call
-Finally we are ready to exchange our OA1 token for an OA2 token_set
+Finally we are ready to exchange our OAuth1.0a token for an OAuth2.0 token_set
 1. Format the `Authorization: header`
 2. Add the POST body in json format
 3. Make the API call
@@ -209,10 +209,10 @@ puts response.body
 ```
 
 ### Step 6) Move new token_set to your production environment
-You'r now the proud owner of a OA2 token set for your XeroAPI connections!
+You are now the proud owner of OAuth2.0 token_set(s) for your XeroAPI connections!
 
 If you were to head over to https://jwt.io/ and decode the new access_token you can see some interesting info regarding your new connection.
 
-You will also see there is a new very important field returned in the OA2 token_set: `"xero_tenant_id": "xxx-xxx-xxx-xxx"`.
+You will also see there is a new very important field returned in the OAuth2.0 token_set: `"xero_tenant_id": "xxx-xxx-xxx-xxx"`.
 
 This is the largest difference between the two authorization gateways. We now have the ability to have multiple organisations authenticated by a user under the same "access_token". Due to this enhancement each API call will need to have the xero_tenant_id specified in the header. Fortunately we have a suite of Xero supported SDK's that make this easy. They also include tooling for your new signups to authorize and return valid token_sets back to your application.
