@@ -145,7 +145,7 @@ oauth_signature
 => "dkkQVrBsTfWqCatt4xxxxxe3Aitmje5jtjjoWxxxZl%2BuriiCjY%2Fe%2FgM6B0ogG%f4LKCJVPaS9Y6atX8734xxxz0hLhVREIDtNFEb%2BpxxxejeI%3D"
 ```
 
-### Step 4) Build your authorization headers & POST params
+### Step 5) Build your authorization headers & POST params
 Now we can format our final API call header & body parameters
 
 ```ruby
@@ -173,7 +173,7 @@ params
 => { scope: "offline_access accounting.transactions accounting.settings", client_id: "YOUR_OAUTH20_CLIENT_ID", client_secret: "YOUR_OAUTH20_CLIENT_SECRET" }
 ```
 
-### 5) Make your API call
+### 6) Make your API call
 Finally we are ready to exchange our OAuth1.0a token for an OAuth2.0 token_set
 1. Format the `Authorization: header`
 2. Add the POST body in json format
@@ -208,7 +208,7 @@ puts response.body
 }
 ```
 
-### Step 6) Move new token_set to your production environment
+### Step 7) Move new token_set to your production environment
 You are now the proud owner of OAuth2.0 token_set(s) for your XeroAPI connections!
 
 If you were to head over to https://jwt.io/ and decode the new access_token you can see some interesting info regarding your new connection.
