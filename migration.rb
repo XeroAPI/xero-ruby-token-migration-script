@@ -110,7 +110,7 @@ class XeroOauthMigration
     request.body = params.to_json
     response = http.request(request)
 
-    return response.body
+    return JSON.parse(response.body)
   end
 end
 
