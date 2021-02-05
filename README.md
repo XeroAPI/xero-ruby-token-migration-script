@@ -21,7 +21,7 @@ ruby migration.rb
 ```
 ## Example output
 
-Running the script should output your new OAuth2.0 token_sets in a file `oauth2_tokens.json` and print out JSON of your converted tokens to STDOUT. 
+Running the script should output your new OAuth2.0 token_sets in a file `oauth2_tokens.json` and print out JSON of your converted tokens to STDOUT.
 
 With 1 recently refreshed OAuth1.0a token:
 ```json
@@ -33,7 +33,7 @@ With 1 recently refreshed OAuth1.0a token:
 Should write to `oauth2_tokens.json` and return an array of OAuth2.0 `token_sets` when parsed look like:
 ```json
 [
-  { 
+  {
     "access_token": "xxxxxxxxxx.xxxxxxxxxx",
     "refresh_token": "xxxxxxxxxx",
     "expires_in": "1800",
@@ -91,7 +91,7 @@ base_params = "oauth_consumer_key=#{CONSUMER_KEY}" +
 ```
 
 ```bash
-base_params 
+base_params
 => "oauth_consumer_key=YOUR_CONSUMER_KEY&oauth_nonce=1cbf3d69-d478-4956-b574-a4c6c4a4b2c4&oauth_signature_method=RSA-SHA1&oauth_timestamp=1591214409&oauth_token=VALID_OAUTH_10A_ACCESS_TOKEN&oauth_version=1.0&tenantType=ORGANISATION"
 ```
 
@@ -135,9 +135,9 @@ rsa_key = OpenSSL::PKey::RSA.new signing_key
 digest = OpenSSL::Digest::SHA1.new
 signature = rsa_key.sign(digest, signature_base_string)
 
-Base64.strict_encode64(signature).chomp.gsub(/\n/, '')
+base64_signature = Base64.strict_encode64(signature).chomp.gsub(/\n/, '')
 
-oauth_signature = URI.encode_www_form_component(signature)
+oauth_signature = URI.encode_www_form_component(base64_signature)
 ```
 
 ```bash
@@ -195,7 +195,7 @@ response = http.request(request)
 ```
 
 ```bash
-puts response.body
+puts JSON.parse(response.body)
 ```
 
 ```json
