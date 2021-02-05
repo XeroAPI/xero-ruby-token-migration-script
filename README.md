@@ -195,7 +195,7 @@ response = http.request(request)
 ```
 
 ```bash
-puts response.body
+puts JSON.parse(response.body)
 ```
 
 ```json
