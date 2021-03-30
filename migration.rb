@@ -18,7 +18,6 @@ end
 
 SIGNATURE_METHOD = 'RSA-SHA1'
 ENDPOINT = 'https://api.xero.com/oauth/migrate'
-NONCE = SecureRandom.uuid
 TIMESTAMP = Time.now.getutc.to_i.to_s
 
 class XeroOauthMigration
@@ -30,7 +29,7 @@ class XeroOauthMigration
   def self.get_oauth_params
     oauth_params = {}
     oauth_params['oauth_consumer_key'] = CONSUMER_KEY
-    oauth_params['oauth_nonce'] = NONCE
+    oauth_params['oauth_nonce'] = SecureRandom.uuid
     oauth_params['oauth_signature_method'] = SIGNATURE_METHOD
     oauth_params['oauth_timestamp'] = TIMESTAMP
     oauth_params['oauth_token'] = @token
